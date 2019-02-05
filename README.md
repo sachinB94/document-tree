@@ -19,7 +19,7 @@ yarn add document-tree
 ## Usage
 
 ```js
-const documentTree = require('document-tree'); 
+const documentTree = require('document-tree').default; 
 
 const htmlString = `
   <div id="testId">
@@ -37,7 +37,7 @@ const tree = documentTree.generate(htmlString);
 //     },
 //     children: [
 //       {
-//         tagName: 'span',
+//         tagName: 'div',
 //         attributes: {
 //           class: 'testClass'
 //         },

@@ -15,7 +15,6 @@
   ],
   "author": "Sachin Bansal <sachinbansal94@gmail.com>",
   "license": "MIT",
-  "private": true,
   "files": [
     "lib/**/*"
   ],
