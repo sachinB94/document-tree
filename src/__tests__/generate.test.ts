@@ -76,3 +76,9 @@ test('Document tree generation', () => {
 test('Return empty array on empty data', () => {
   expect(documentTree.generate('')).toEqual([]);
 });
+
+test('Attribute with no value', () => {
+  expect(documentTree.generate('<div attr></div>')).toEqual([
+    { tagName: 'div', attributes: { attr: '' }, children: [] }
+  ]);
+});
