@@ -9,10 +9,66 @@ test('Generate document tree', () => {
       </div>
 
       <div id="id2">
-        <span class="class2">
+        <span class="class2" />
       </div>
     </div>
+    <span class="class3" />
   `;
-  
-  expect(documentTree.generate(htmlString)).toEqual({});
+
+  const expectedResult = [
+    {
+      attributes: {
+        class: 'class1'
+      },
+      children: [
+        {
+          attributes: {
+            id: 'id1'
+          },
+          children: [
+            {
+              attributes: {
+                classname: 'className1'
+              },
+              children: [],
+              tagName: 'div'
+            },
+            {
+              attributes: {
+                classname: 'className2'
+              },
+              children: [],
+              tagName: 'div'
+            }
+          ],
+          tagName: 'div'
+        },
+        {
+          attributes: {
+            id: 'id2'
+          },
+          children: [
+            {
+              attributes: {
+                class: 'class2'
+              },
+              children: [],
+              tagName: 'span'
+            }
+          ],
+          tagName: 'div'
+        }
+      ],
+      tagName: 'div'
+    },
+    {
+      attributes: {
+        class: 'class3'
+      },
+      children: [],
+      tagName: 'span'
+    }
+  ];
+
+  expect(documentTree.generate(htmlString)).toEqual(expectedResult);
 });

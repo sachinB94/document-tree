@@ -8,7 +8,11 @@
     "type": "git",
     "url": "git+https://github.com/sachinB94/document-tree.git"
   },
-  "keywords": ["Document Tree", "HTML Parser", "JSX Parser"],
+  "keywords": [
+    "Document Tree",
+    "HTML Parser",
+    "JSX Parser"
+  ],
   "author": "Sachin Bansal <sachinbansal94@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -29,10 +33,14 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "@types/parse5": "^5.0.0",
+    "parse5": "^5.1.0"
   }
 }

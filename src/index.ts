@@ -1,7 +1,5 @@
-const generateDocumentTree = (htmlString: string): Object => {
-  return {};
-};
+import generate from './generate';
 
 export default {
-  generate: generateDocumentTree
+  generate
 };
