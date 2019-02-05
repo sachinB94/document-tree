@@ -1,6 +1,6 @@
 import documentTree from '../index';
 
-test('Generate document tree', () => {
+test('Document tree generation', () => {
   const htmlString = `
     <div class="class1">
       <div id="id1">
@@ -71,4 +71,8 @@ test('Generate document tree', () => {
   ];
 
   expect(documentTree.generate(htmlString)).toEqual(expectedResult);
+});
+
+test('Return empty array on empty data', () => {
+  expect(documentTree.generate('')).toEqual([]);
 });

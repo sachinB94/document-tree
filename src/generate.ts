@@ -26,6 +26,12 @@ export interface InterfaceNode {
   children: InterfaceNode[];
 }
 
+const getChildNodes = (childNodes: InterfaceParse5TreeElement[]): InterfaceNode[] => {
+  return (childNodes || [])
+    .filter(childNode => childNode.nodeName !== '#text')
+    .map(childNode => getNode(childNode as InterfaceParse5TreeElement));
+};
+
 const getNode = (elementNode: InterfaceParse5TreeElement): InterfaceNode => {
   const attributes: InterfaceAttribute = {};
 
@@ -33,9 +39,7 @@ const getNode = (elementNode: InterfaceParse5TreeElement): InterfaceNode => {
     attributes[name] = value;
   });
 
-  const children: InterfaceNode[] = elementNode.childNodes
-    .filter(childNode => childNode.nodeName !== '#text')
-    .map(childNode => getNode(childNode as InterfaceParse5TreeElement));
+  const children = getChildNodes(elementNode.childNodes);
 
   return {
     attributes,
@@ -47,9 +51,7 @@ const getNode = (elementNode: InterfaceParse5TreeElement): InterfaceNode => {
 export default (htmlString: string): InterfaceNode[] => {
   const document = parse5.parseFragment(htmlString.trim()) as InterfaceParse5DocumentFragment;
 
-  const tree = (document.childNodes || [])
-    .filter(childNode => childNode.nodeName !== '#text')
-    .map(childNode => getNode(childNode as InterfaceParse5TreeElement));
+  const tree = getChildNodes(document.childNodes);
 
   return tree;
 };
