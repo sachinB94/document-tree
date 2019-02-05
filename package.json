@@ -1,0 +1,10 @@
+{
+  "name": "document-tree",
+  "version": "0.1.0",
+  "description": "Generate document tree from your HTML/JSX",
+  "main": "index.js",
+  "repository": "https://github.com/sachinB94/document-tree.git",
+  "author": "Sachin Bansal <sachinbansal94@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
